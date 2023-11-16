@@ -29,7 +29,7 @@ func (m *UserModel) Insert(name, email, password string) error {
 	}
 	
 	stmt := `INSERT INTO users (name, email, hashed_password, created)
-	VLUES(?, ?, ?, UTC_TIMESTAMP())`
+	VALUES(?, ?, ?, UTC_TIMESTAMP())`
 
 	_, err = m.DB.Exec(stmt, name, email, string(hashedPassword))
 	if err != nil {
